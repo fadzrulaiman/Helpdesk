@@ -27,6 +27,27 @@ class UsersTableSeeder extends Seeder
             $user->role_id = 1;
             $user->save();
             // Add Default user
+            $user = new User();
+            $user->name = 'User';
+            $user->email = 'user@user.com';
+            $user->staffno = 'U1';
+            $user->icno = '000807121779';
+            $user->location = 'HQ';
+            $user->phone='999';
+            $user->password = bcrypt('password');
+            $user->role_id = 2;
+            $user->save();
+            // Add Default Customer
+            $user = new User();
+            $user->name = 'Customer';
+            $user->email = 'customer@customer.com';
+            $user->staffno = 'C1';
+            $user->icno = '000807121779';
+            $user->location = 'HQ';
+            $user->phone='999';
+            $user->password = bcrypt('password');
+            $user->role_id = 3;
+            $user->save();
         }
     }
 }
