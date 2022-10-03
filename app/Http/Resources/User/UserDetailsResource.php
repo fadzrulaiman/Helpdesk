@@ -28,7 +28,6 @@ class UserDetailsResource extends JsonResource
             'phone' => $user->phone,
             'avatar' => $user->getAvatar(),
             'gravatar' => $user->getGravatar(),
-            'department_id' => $user->department_id,
             'role_id' => $user->role_id,
             'status' => (bool) $user->status,
             'created_at' => $user->created_at->toISOString(),

@@ -22,7 +22,6 @@ class CreateUsersTable extends Migration
                 $table->string('location')->nullable();
                 $table->string('phone')->nullable();
                 $table->string('avatar')->nullable();
-                $table->foreignId('department_id')->nullable()->constrained('departments')->nullOnDelete();
                 $table->foreignId('role_id')->constrained('user_roles');
                 $table->boolean('status')->default(true);
                 $table->string('password');

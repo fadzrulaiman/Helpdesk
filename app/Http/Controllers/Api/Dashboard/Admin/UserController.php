@@ -63,7 +63,6 @@ class UserController extends Controller
         $user->phone = $request->get('phone');
         $user->location = $request->get('location');
         $user->status = $request->get('status');
-        $user->department = $request->get('department_id');
         $user->role_id = $request->get('role_id');
         $user->password = bcrypt($request->get('password'));
         if ($user->save()) {
@@ -104,7 +103,6 @@ class UserController extends Controller
         $user->phone = $request->get('phone');
         $user->location = $request->get('location');
         $user->status = $request->get('status');
-        $user->department = $request->get('department_id');
         $user->role_id = $request->get('role_id');
         if ($user->save()) {
             return response()->json(['message' => 'Data updated correctly', 'user' => new UserResource($user)]);

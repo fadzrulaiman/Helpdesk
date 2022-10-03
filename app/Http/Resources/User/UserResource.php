@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Resources\User;
-use App\Http\Resources\Department\DepartmentSelectResource;
+
 use App\Http\Resources\UserRole\UserRoleResource;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -29,8 +29,6 @@ class UserResource extends JsonResource
             'phone' => $user->phone,
             'avatar' => $user->getAvatar(),
             'gravatar' => $user->getGravatar(),
-            'department' => new DepartmentSelectResource($user->department),
-            'department_id' => $user->department_id,
             'role' => new UserRoleResource($user->userRole),
             'role_id' => $user->role_id,
             'status' => (bool) $user->status,
