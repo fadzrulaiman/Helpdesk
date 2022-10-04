@@ -19,7 +19,7 @@ class PrioritiesTableSeeder extends Seeder
             $now = Carbon::now();
             Priority::insert([
                 ['value' => 1, 'name' => 'Low', 'created_at' => $now, 'updated_at' => $now],
-                ['value' => 2, 'name' => 'Medium', 'created_at' => $now, 'updated_at' => $now],
+                ['value' => 2, 'name' => 'Normal', 'created_at' => $now, 'updated_at' => $now],
                 ['value' => 3, 'name' => 'High', 'created_at' => $now, 'updated_at' => $now],
                 ['value' => 4, 'name' => 'Urgent', 'created_at' => $now, 'updated_at' => $now],
             ]);

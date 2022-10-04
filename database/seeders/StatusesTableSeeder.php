@@ -19,7 +19,7 @@ class StatusesTableSeeder extends Seeder
             $now = Carbon::now();
             Status::insert([
                 ['name' => 'Open', 'created_at' => $now, 'updated_at' => $now],
-                ['name' => 'Pending', 'created_at' => $now, 'updated_at' => $now],
+                ['name' => 'Approved', 'created_at' => $now, 'updated_at' => $now],
                 ['name' => 'Resolved', 'created_at' => $now, 'updated_at' => $now],
                 ['name' => 'Closed', 'created_at' => $now, 'updated_at' => $now],
             ]);
