@@ -10,11 +10,11 @@
                                 <svg-vue class="h-5 w-5 text-gray-700" icon="font-awesome.chevron-left-regular"></svg-vue>
                             </button>
                             <div v-on-clickaway="closeActionDropdown" class="block">
-                                <div class="relative inline-block text-left">
+                                <div v-if="$store.state.user.id===1" class="relative inline-block text-left">
                                     <button class="btn p-4 rounded-none" type="button" @click="toggleActionDropdown('agent')">
                                         <svg-vue class="h-5 w-5 text-gray-700" icon="font-awesome.user-tag-regular"></svg-vue>
                                     </button>
-                                    <div v-show="actions.agent" class="origin-top-right absolute left-0 mt-1 w-56 rounded-md shadow-lg z-20">
+                                    <div  v-show="actions.agent" class="origin-top-right absolute left-0 mt-1 w-56 rounded-md shadow-lg z-20">
                                         <div class="rounded-md bg-white shadow-xs">
                                             <div class="py-1">
                                                 <template v-for="agent in agentList">
@@ -31,7 +31,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="relative inline-block text-left">
+                                <div v-if="$store.state.user.id===1" class="relative inline-block text-left">
                                     <button class="btn p-4 rounded-none" type="button" @click="toggleActionDropdown('department')">
                                         <svg-vue class="h-5 w-5 text-gray-700" icon="font-awesome.users-class-regular"></svg-vue>
                                     </button>
@@ -73,7 +73,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="relative inline-block text-left">
+                                <div v-if="$store.state.user.id===1" class="relative inline-block text-left">
                                     <button class="btn p-4 rounded-none" type="button" @click="toggleActionDropdown('priority')">
                                         <svg-vue class="h-5 w-5 text-gray-700" icon="font-awesome.pennant-regular"></svg-vue>
                                     </button>
