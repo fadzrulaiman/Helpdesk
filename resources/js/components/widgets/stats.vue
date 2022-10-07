@@ -15,7 +15,7 @@
             <loading :status="stats.pending_tickets == null"/>
             <div class="px-4 py-5 sm:p-6">
                 <dt class="text-sm font-medium text-gray-500 truncate">
-                    {{ $t('Pending tickets') }}
+                    {{ $t('Aprroved tickets') }}
                 </dt>
                 <dd class="mt-1 text-3xl font-semibold text-gray-900">
                     {{ stats.pending_tickets ? stats.pending_tickets : 0 }}

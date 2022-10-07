@@ -3,7 +3,7 @@
         <div class="flex flex-col bg-white rounded-lg shadow">
             <div class="p-4">
                 <div class="font-semibold">
-                    {{ $t('Opened tickets this year') }}
+                    {{ ('Tickets opened this year') }}
                 </div>
             </div>
             <div class="p-4">
