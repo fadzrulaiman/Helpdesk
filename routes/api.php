@@ -6,7 +6,6 @@ use App\Http\Controllers\Api\Dashboard\Admin\DepartmentController as DashboardAd
 use App\Http\Controllers\Api\Dashboard\Admin\LabelController as DashboardAdminLabelController;
 use App\Http\Controllers\Api\Dashboard\Admin\LanguageController as DashboardAdminLanguageController;
 use App\Http\Controllers\Api\Dashboard\Admin\PriorityController as DashboardAdminPriorityController;
-use App\Http\Controllers\Api\Dashboard\Admin\LocationController as DashboardAdminLocationController;
 use App\Http\Controllers\Api\Dashboard\Admin\SettingController as DashboardAdminSettingController;
 use App\Http\Controllers\Api\Dashboard\Admin\StatusController as DashboardAdminStatusController;
 use App\Http\Controllers\Api\Dashboard\Admin\UserController as DashboardAdminUserController;
@@ -74,8 +73,6 @@ Route::group(['prefix' => 'dashboard'], static function () {
         Route::apiResource('labels', DashboardAdminLabelController::class);
 
         Route::apiResource('statuses', DashboardAdminStatusController::class)->except(['store', 'delete']);
-        
-        Route::apiResource('locations', DashboardAdminLocationController::class)->except(['store', 'delete']);
 
         Route::apiResource('priorities', DashboardAdminPriorityController::class)->except(['store', 'delete']);
 
