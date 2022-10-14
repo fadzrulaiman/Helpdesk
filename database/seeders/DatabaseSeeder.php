@@ -20,9 +20,5 @@ class DatabaseSeeder extends Seeder
         $this->call(StatusesTableSeeder::class);
         $this->call(SettingsTableSeeder::class);
         $this->call(LocationsTableSeeder::class);
-<<<<<<< HEAD
-=======
-        $this->call(DepartmentTableSeeder::class);
->>>>>>> parent of 4f4cdba (Update everything)
     }
 }
