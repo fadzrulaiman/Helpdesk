@@ -99,11 +99,6 @@ class User extends Authenticatable
         return $this->belongsTo(UserRole::class, 'role_id');
     }
 
-    public function userLocation(): BelongsTo
-    {
-        return $this-> belongsTo(Location::class,'location_id');
-    }
-
     public function getAvatar(): string
     {
         if (Storage::disk('public')->exists($this->avatar)) {

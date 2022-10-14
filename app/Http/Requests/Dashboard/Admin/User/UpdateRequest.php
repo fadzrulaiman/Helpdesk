@@ -28,7 +28,7 @@ class UpdateRequest extends FormRequest
             'email' => ['required', 'email', 'max:255', 'unique:users,email,'.$this->get('id')],
             'staffno' => ['required'],
             'icno' => ['required'],
-            'location' => ['required', 'exist:locations,id'],
+            'location' => ['required'],
             'phone' => ['required'],
             'status' => ['required'],
             'role_id' => ['required', 'exists:user_roles,id'],
@@ -52,9 +52,6 @@ class UpdateRequest extends FormRequest
             'email.unique' => __('The :attribute has already been taken', ['attribute' => __('email')]),
 
             'status.required' => __('The :attribute field is required', ['attribute' => __('status')]),
-
-            'location_id.required' => __('The :attribute field is required', ['attribute' => __('location')]),
-            'location_id.exists' => __('The selected :attribute is invalid', ['attribute' => __('location')]),
 
             'role_id.required' => __('The :attribute field is required', ['attribute' => __('role')]),
             'role_id.exists' => __('The selected :attribute is invalid', ['attribute' => __('role')]),

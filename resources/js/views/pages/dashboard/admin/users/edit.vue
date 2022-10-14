@@ -81,15 +81,13 @@
                                 <div class="col-span-3">
                                     <label class="block text-sm font-medium leading-5 text-gray-700" for="location">{{ $t('Location') }}</label>
                                     <div class="mt-1 relative rounded-md shadow-sm">
-                                        <select
+                                        <input
                                             id="location"
-                                            v-model="user.location_id"
-                                            class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                            v-model="user.location"
+                                            :placeholder="$t('Location')"
+                                            class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                                             required
                                         >
-                                            <option :value="null" disabled>{{ $t('Select an option') }}</option>
-                                            <option v-for="location in userLocations" :value="location.id">{{ location.name }}</option>
-                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-span-3">

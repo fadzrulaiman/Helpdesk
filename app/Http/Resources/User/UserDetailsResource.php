@@ -24,7 +24,7 @@ class UserDetailsResource extends JsonResource
             'email' => $user->email,
             'staffno' => $user->staffno,
             'icno' => $user->icno,
-            'location_id' => $user->location_id,
+            'location' => $user->location,
             'phone' => $user->phone,
             'avatar' => $user->getAvatar(),
             'gravatar' => $user->getGravatar(),
