@@ -21,7 +21,7 @@ class UsersTableSeeder extends Seeder
             $user->email = 'admin@admin.com';
             $user->staffno = 'A1';
             $user->icno = '000807121779';
-            $user->location = 'HQ';
+            $user->location_id = 27;
             $user->phone='999';
             $user->password = bcrypt('password');
             $user->role_id = 1;
@@ -32,7 +32,7 @@ class UsersTableSeeder extends Seeder
             $user->email = 'user@user.com';
             $user->staffno = 'U1';
             $user->icno = '000807121779';
-            $user->location = 'HQ';
+            $user->location_id = 27;
             $user->phone='999';
             $user->password = bcrypt('password');
             $user->role_id = 2;
@@ -43,7 +43,7 @@ class UsersTableSeeder extends Seeder
             $user->email = 'customer@customer.com';
             $user->staffno = 'C1';
             $user->icno = '000807121779';
-            $user->location = 'HQ';
+            $user->location_id = 27;
             $user->phone='999';
             $user->password = bcrypt('password');
             $user->role_id = 3;

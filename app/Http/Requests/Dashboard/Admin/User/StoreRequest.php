@@ -28,7 +28,7 @@ class StoreRequest extends FormRequest
             'email' => ['required', 'email', 'max:255', 'unique:users'],
             'staffno' => ['required'],
             'icno'=>['required'],
-            'location' => ['required'],
+            'location' => ['required', 'exist:locations,id'],
             'phone' => ['required'],
             'status' => ['required'],
             'role_id' => ['required', 'exists:user_roles,id'],
@@ -53,6 +53,9 @@ class StoreRequest extends FormRequest
             'email.unique' => __('The :attribute has already been taken', ['attribute' => __('email')]),
 
             'status.required' => __('The :attribute field is required', ['attribute' => __('status')]),
+
+            'location_id.required' => __('The :attribute field is required', ['attribute' => __('location')]),
+            'location_id.exists' => __('The selected :attribute is invalid', ['attribute' => __('location')]),
 
             'role_id.required' => __('The :attribute field is required', ['attribute' => __('role')]),
             'role_id.exists' => __('The selected :attribute is invalid', ['attribute' => __('role')]),

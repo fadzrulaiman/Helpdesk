@@ -56,6 +56,13 @@
             to="/dashboard/admin/statuses"
         ></menu-item>
         <menu-item
+            v-if="$store.state.permissions && $store.state.permissions['App.Http.Controllers.Api.Dashboard.Admin.LocationController']"
+            :label="$t('Location')"
+            :mobile="mobile"
+            icon="font-awesome.tasks-regular"
+            to="/dashboard/admin/locations"
+        ></menu-item>
+        <menu-item
             v-if="$store.state.permissions && $store.state.permissions['App.Http.Controllers.Api.Dashboard.Admin.PriorityController']"
             :label="$t('Priorities')"
             :mobile="mobile"
