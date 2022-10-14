@@ -8,7 +8,6 @@ use App\Http\Controllers\Api\Dashboard\Admin\LanguageController as DashboardAdmi
 use App\Http\Controllers\Api\Dashboard\Admin\PriorityController as DashboardAdminPriorityController;
 use App\Http\Controllers\Api\Dashboard\Admin\SettingController as DashboardAdminSettingController;
 use App\Http\Controllers\Api\Dashboard\Admin\StatusController as DashboardAdminStatusController;
-use App\Http\Controllers\Api\Dashboard\Admin\LocationController as DashboardAdminLocationController;
 use App\Http\Controllers\Api\Dashboard\Admin\UserController as DashboardAdminUserController;
 use App\Http\Controllers\Api\Dashboard\Admin\UserRoleController as DashboardAdminUserRoleController;
 use App\Http\Controllers\Api\Dashboard\CannedReplyController as DashboardCannedReplyController;
@@ -17,7 +16,6 @@ use App\Http\Controllers\Api\Dashboard\TicketController as DashboardTicketContro
 use App\Http\Controllers\Api\File\FileController as FileFileController;
 use App\Http\Controllers\Api\Language\LanguageController as LanguageLanguageController;
 use App\Http\Controllers\Api\Ticket\TicketController as UserTicketController;
-use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'lang'], static function () {
     Route::get('/', [LanguageLanguageController::class, 'list'])->name('language.list');
@@ -73,8 +71,6 @@ Route::group(['prefix' => 'dashboard'], static function () {
         Route::apiResource('departments', DashboardAdminDepartmentController::class);
 
         Route::apiResource('labels', DashboardAdminLabelController::class);
-
-        Route::apiResource('locations', DashboardAdminLocationController::class)->except(['store','delete']);
 
         Route::apiResource('statuses', DashboardAdminStatusController::class)->except(['store', 'delete']);
 
