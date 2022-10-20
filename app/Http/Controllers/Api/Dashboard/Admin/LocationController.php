@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\Admin\Location\UpdateRequest;
 use App\Http\Resources\Location\LocationResource;
 use App\Models\Location;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Illuminate\Http\JsonResponse;
 
 class LocationController extends Controller
 {
