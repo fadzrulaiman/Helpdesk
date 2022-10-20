@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Status;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class StatusesTableSeeder extends Seeder
 {
@@ -15,14 +16,12 @@ class StatusesTableSeeder extends Seeder
      */
     public function run()
     {
-        if (Status::count() === 0) {
-            $now = Carbon::now();
-            Status::insert([
-                ['name' => 'Open', 'created_at' => $now, 'updated_at' => $now],
-                ['name' => 'Approved', 'created_at' => $now, 'updated_at' => $now],
-                ['name' => 'Resolved', 'created_at' => $now, 'updated_at' => $now],
-                ['name' => 'Closed', 'created_at' => $now, 'updated_at' => $now],
-            ]);
-        }
+        $status =[
+            ['name'=>'Open', 'created_at'=> Carbon::now(),'updated_at'=> Carbon::now()],
+            ['name'=>'Approved', 'created_at'=> Carbon::now(),'updated_at'=> Carbon::now()],
+            ['name'=>'Resolved', 'created_at'=> Carbon::now(),'updated_at'=> Carbon::now()],
+            ['name'=>'Closed', 'created_at'=> Carbon::now(),'updated_at'=> Carbon::now()],
+        ];
+        DB::table('statuses')->insert($status);
     }
 }
