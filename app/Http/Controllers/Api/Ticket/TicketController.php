@@ -73,6 +73,7 @@ class TicketController extends Controller
         $ticket->uuid = Str::uuid();
         $ticket->subject = $request->get('subject');
         $ticket->status_id = 1;
+        $ticket->priority_id = 2;
         if ($request->has('department_id')) {
             $ticket->department_id = $request->get('department_id');
         }
