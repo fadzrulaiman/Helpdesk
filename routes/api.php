@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\Dashboard\Admin\LabelController as DashboardAdminLa
 use App\Http\Controllers\Api\Dashboard\Admin\LanguageController as DashboardAdminLanguageController;
 use App\Http\Controllers\Api\Dashboard\Admin\PriorityController as DashboardAdminPriorityController;
 use App\Http\Controllers\Api\Dashboard\Admin\SettingController as DashboardAdminSettingController;
+use App\Http\Controllers\Api\Dashboard\Admin\LocationController as DashboardAdminLocationController;
 use App\Http\Controllers\Api\Dashboard\Admin\StatusController as DashboardAdminStatusController;
 use App\Http\Controllers\Api\Dashboard\Admin\UserController as DashboardAdminUserController;
 use App\Http\Controllers\Api\Dashboard\Admin\UserRoleController as DashboardAdminUserRoleController;
@@ -61,7 +62,7 @@ Route::group(['prefix' => 'dashboard'], static function () {
     Route::post('tickets/{ticket}/remove-label', [DashboardTicketController::class, 'removeLabel'])->name('dashboard.tickets.remove-label');
     Route::post('tickets/{ticket}/quick-actions', [DashboardTicketController::class, 'ticketQuickActions'])->name('dashboard.tickets.ticket-quick-actions');
     Route::post('tickets/{ticket}/reply', [DashboardTicketController::class, 'reply'])->name('dashboard.tickets.reply');
-    Route::apiResource('tickets', DashboardTicketController::class)->except(['update']);
+
 
     Route::apiResource('canned-replies', DashboardCannedReplyController::class);
 
@@ -71,6 +72,8 @@ Route::group(['prefix' => 'dashboard'], static function () {
         Route::apiResource('departments', DashboardAdminDepartmentController::class);
 
         Route::apiResource('labels', DashboardAdminLabelController::class);
+
+        Route::apiResource('locations', DashboardAdminLocationController::class)->except(['store', 'delete']);;
 
         Route::apiResource('statuses', DashboardAdminStatusController::class)->except(['store', 'delete']);
 
