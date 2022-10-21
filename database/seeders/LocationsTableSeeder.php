@@ -41,7 +41,8 @@ class LocationsTableSeeder extends Seeder
             ['name'=>'Hospital Tenom','created_at'=> Carbon::now(),'updated_at'=> Carbon::now()],
             ['name'=>'Hospital Tambunan','created_at'=> Carbon::now(),'updated_at'=> Carbon::now()],
             ['name'=>'Hospital Keningau','created_at'=> Carbon::now(),'updated_at'=> Carbon::now()],
-            ['name'=>'Hospital Labuan','created_at'=> Carbon::now(),'updated_at'=> Carbon::now()],];
+            ['name'=>'Hospital Labuan','created_at'=> Carbon::now(),'updated_at'=> Carbon::now()],
+            ['name'=>'Headquaters','created_at'=> Carbon::now(),'updated_at'=> Carbon::now()],];
             DB::table('locations')->insert($location);
         }
     }
