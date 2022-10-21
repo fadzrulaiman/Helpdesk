@@ -48,7 +48,7 @@ class LocationController extends Controller
         $request->validated();
         $location->name = $request->get('name');
         if ($location->save()) {
-            return response()->json(['message' => 'Data updated correctly', 'status' => new StatusResource($location)]);
+            return response()->json(['message' => 'Data updated correctly', 'status' => new LocationResource($location)]);
         }
         return response()->json(['message' => __('An error occurred while saving data')], 500);
     }
