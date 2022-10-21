@@ -33,6 +33,9 @@ import AdminDashboardLabelsList from "@/views/pages/dashboard/admin/labels/list"
 import AdminDashboardLabelsNew from "@/views/pages/dashboard/admin/labels/new";
 import AdminDashboardLabelsEdit from "@/views/pages/dashboard/admin/labels/edit";
 
+import AdminDashboardLocationList from "@/views/pages/dashboard/admin/locations/list";
+import AdminDashboardLocationEdit from "@/views/pages/dashboard/admin/locations/edit";
+
 import AdminDashboardStatusesList from "@/views/pages/dashboard/admin/statuses/list";
 import AdminDashboardStatusesEdit from "@/views/pages/dashboard/admin/statuses/edit";
 
@@ -109,6 +112,9 @@ let routes = [
             {path: 'admin/labels', component: AdminDashboardLabelsList, meta: {middleware: 'auth', dashboard_access: true, controller: 'App.Http.Controllers.Api.Dashboard.Admin.LabelController'}},
             {path: 'admin/labels/new', component: AdminDashboardLabelsNew, meta: {middleware: 'auth', dashboard_access: true, controller: 'App.Http.Controllers.Api.Dashboard.Admin.LabelController'}},
             {path: 'admin/labels/:id/edit', component: AdminDashboardLabelsEdit, meta: {middleware: 'auth', dashboard_access: true, controller: 'App.Http.Controllers.Api.Dashboard.Admin.LabelController'}},
+
+            {path: 'admin/locations', component: AdminDashboardLocationList, meta: {middleware: 'auth', dashboard_access: true, controller: 'App.Http.Controllers.Api.Dashboard.Admin.LocationController'}},
+            {path: 'admin/locations/:id/edit', component: AdminDashboardLocationEdit, meta: {middleware: 'auth', dashboard_access: true, controller: 'App.Http.Controllers.Api.Dashboard.Admin.LocationController'}},
 
             {path: 'admin/statuses', component: AdminDashboardStatusesList, meta: {middleware: 'auth', dashboard_access: true, controller: 'App.Http.Controllers.Api.Dashboard.Admin.StatusController'}},
             {path: 'admin/statuses/:id/edit', component: AdminDashboardStatusesEdit, meta: {middleware: 'auth', dashboard_access: true, controller: 'App.Http.Controllers.Api.Dashboard.Admin.StatusController'}},
