@@ -1,16 +1,15 @@
 <template>
     <main class="flex-1 relative overflow-y-auto py-6 focus:outline-none" tabindex="0">
-        <form @submit.prevent="saveStatus">
+        <form @submit.prevent="saveLocation">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 px-5">
                 <div class="md:flex md:items-center md:justify-between">
                     <div class="flex-1 min-w-0">
-                        <h1 class="py-0.5 text-2xl font-semibold text-gray-900">{{ $t('Edit locations') }}</h1>
+                        <h1 class="py-0.5 text-2xl font-semibold text-gray-900">{{ $t('Edit location') }}</h1>
                     </div>
                 </div>
             </div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="mt-6 shadow sm:rounded-lg">
-                    <loading :status="loading"/>
                     <div class="bg-white md:grid md:grid-cols-3 md:gap-6 px-4 py-5 sm:p-6">
                         <div class="md:col-span-1">
                             <h3 class="text-lg font-medium leading-6 text-gray-900">{{ $t('Location details') }}</h3>
@@ -47,7 +46,7 @@
                                 class="btn btn-green shadow-sm rounded-md"
                                 type="submit"
                             >
-                                {{ $t('Edit Locations') }}
+                                {{ $t('Edit Location') }}
                             </button>
                         </span>
                     </div>
@@ -69,8 +68,8 @@ export default {
     data() {
         return {
             loading: true,
-            deleteStatusModal: false,
-            status: {
+            deleteLocationModal: false,
+            location: {
                 name: null,
             },
         }
@@ -82,7 +81,7 @@ export default {
         saveLocation() {
             const self = this;
             self.loading = true;
-            axios.put('api/dashboard/admin/locations/' + self.$route.params.id, self.status).then(function () {
+            axios.put('api/dashboard/admin/locations/' + self.$route.params.id, self.location).then(function () {
                 self.loading = false;
                 self.$notify({
                     title: self.$i18n.t('Success').toString(),

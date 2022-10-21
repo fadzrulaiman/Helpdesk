@@ -9,7 +9,6 @@
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="my-6 bg-white shadow overflow-hidden sm:rounded-md">
-                <loading :location="loading"/>
                 <template v-if="locationList.length > 0">
                     <ul>
                         <template v-for="(location, index) in locationList">
@@ -59,7 +58,7 @@ export default {
     name: "list",
     metaInfo() {
         return {
-            title: this.$i18n.t('Locations')
+            title: this.$i18n.t('Location')
         }
     },
     data() {
