@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Api\Dashboard\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\Admin\User\StoreRequest;
 use App\Http\Requests\Dashboard\Admin\User\UpdateRequest;
+use App\Http\Resources\Location\LocationResource;
 use App\Http\Resources\User\UserResource;
 use App\Http\Resources\UserRole\UserRoleResource;
+use App\Models\Location;
 use App\Models\User;
 use App\Models\UserRole;
 use Auth;
@@ -61,7 +63,7 @@ class UserController extends Controller
         $user->staffno = $request->get('staffno');
         $user->icno = $request->get('icno');
         $user->phone = $request->get('phone');
-        $user->location = $request->get('location');
+        $user->location_id = $request->get('location_id');
         $user->status = $request->get('status');
         $user->role_id = $request->get('role_id');
         $user->password = bcrypt($request->get('password'));
@@ -101,7 +103,7 @@ class UserController extends Controller
         $user->email = $request->get('email');
         $user->staffno = $request->get('staffno');
         $user->phone = $request->get('phone');
-        $user->location = $request->get('location');
+        $user->location_id = $request->get('location_id');
         $user->status = $request->get('status');
         $user->role_id = $request->get('role_id');
         if ($user->save()) {
@@ -133,5 +135,10 @@ class UserController extends Controller
     public function userRoles(): JsonResponse
     {
         return response()->json(UserRoleResource::collection(UserRole::all()));
+    }
+
+    public function userLocations(): JsonResponse
+    {
+        return response()->json(LocationResource::collection(Location::all()));
     }
 }

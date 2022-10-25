@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\User;
 
+use App\Http\Resources\Location\LocationResource;
 use App\Http\Resources\UserRole\UserRoleResource;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -25,7 +26,8 @@ class UserResource extends JsonResource
             'email' => $user->email,
             'staffno' => $user->staffno,
             'icno' => $user->icno,
-            'location' => $user->location,
+            'location' => new LocationResource($user->userLocation),
+            'location_id' => $user->location_id,
             'phone' => $user->phone,
             'avatar' => $user->getAvatar(),
             'gravatar' => $user->getGravatar(),

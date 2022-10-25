@@ -28,7 +28,7 @@ class UpdateRequest extends FormRequest
             'email' => ['required', 'email', 'max:255', 'unique:users,email,'.$this->get('id')],
             'staffno' => ['required'],
             'icno' => ['required'],
-            'location' => ['required'],
+            'location_id' => ['required', 'exists:locations,id'],
             'phone' => ['required'],
             'status' => ['required'],
             'role_id' => ['required', 'exists:user_roles,id'],
@@ -50,6 +50,9 @@ class UpdateRequest extends FormRequest
             'email.email' => __('The :attribute must be a valid email address', ['attribute' => __('email')]),
             'email.max' => __('The :attribute may not be greater than :max characters', ['attribute' => __('email'), 'max' => 255]),
             'email.unique' => __('The :attribute has already been taken', ['attribute' => __('email')]),
+
+            'location_id.required' => __('The :attribute field is required', ['attribute' => __('location')]),
+            'location_id.exists' => __('The selected :attribute is invalid', ['attribute' => __('location')]),
 
             'status.required' => __('The :attribute field is required', ['attribute' => __('status')]),
 
