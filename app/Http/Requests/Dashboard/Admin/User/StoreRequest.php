@@ -29,6 +29,7 @@ class StoreRequest extends FormRequest
             'staffno' => ['required'],
             'icno'=>['required'],
             'location_id' => ['required', 'exists:locations,id'],
+            'department_id' => ['required', 'exists:departments,id'],
             'phone' => ['required'],
             'status' => ['required'],
             'role_id' => ['required', 'exists:user_roles,id'],
@@ -54,6 +55,9 @@ class StoreRequest extends FormRequest
 
             'location_id.required' => __('The :attribute field is required', ['attribute' => __('location')]),
             'location_id.exists' => __('The selected :attribute is invalid', ['attribute' => __('location')]),
+
+            'department_id.required' => __('The :attribute field is required', ['attribute' => __('department')]),
+            'department_id.exists' => __('The selected :attribute is invalid', ['attribute' => __('department')]),
 
             'status.required' => __('The :attribute field is required', ['attribute' => __('status')]),
 

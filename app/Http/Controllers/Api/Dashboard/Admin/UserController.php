@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Api\Dashboard\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\Admin\User\StoreRequest;
 use App\Http\Requests\Dashboard\Admin\User\UpdateRequest;
+use App\Http\Resources\Department\DepartmentResource;
 use App\Http\Resources\Location\LocationResource;
 use App\Http\Resources\User\UserResource;
 use App\Http\Resources\UserRole\UserRoleResource;
+use App\Models\Department;
 use App\Models\Location;
 use App\Models\User;
 use App\Models\UserRole;
@@ -63,6 +65,7 @@ class UserController extends Controller
         $user->staffno = $request->get('staffno');
         $user->icno = $request->get('icno');
         $user->phone = $request->get('phone');
+        $user->department_id = $request->get('department_id');
         $user->location_id = $request->get('location_id');
         $user->status = $request->get('status');
         $user->role_id = $request->get('role_id');
@@ -103,6 +106,7 @@ class UserController extends Controller
         $user->email = $request->get('email');
         $user->staffno = $request->get('staffno');
         $user->phone = $request->get('phone');
+        $user->department_id = $request->get('department_id');
         $user->location_id = $request->get('location_id');
         $user->status = $request->get('status');
         $user->role_id = $request->get('role_id');
@@ -140,5 +144,10 @@ class UserController extends Controller
     public function userLocations(): JsonResponse
     {
         return response()->json(LocationResource::collection(Location::all()));
+    }
+
+    public function userDepartments(): JsonResponse
+    {
+        return response()->json(DepartmentResource::collection(Department::all()));
     }
 }
