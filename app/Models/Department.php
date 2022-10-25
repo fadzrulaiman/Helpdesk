@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 
 /**
@@ -49,5 +50,10 @@ class Department extends Model
         return User::whereIn('role_id', UserRole::where('dashboard_access', true)->pluck('id'))
             ->where('status', true)
             ->get();
+    }
+
+    public function users(): HasMany
+    {
+        return $this->hasMany(User::class, 'department_id');
     }
 }

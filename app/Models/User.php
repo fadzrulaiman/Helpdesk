@@ -43,6 +43,7 @@ use Storage;
  * @property-read int|null $tokens_count
  * @property-read UserRole $userRole
  * @property-read Location|null $userLocation
+ * @property-read Department|null $userDepartment
  * @method static Builder|User filter($input = [], $filter = null)
  * @method static Builder|User newModelQuery()
  * @method static Builder|User newQuery()
@@ -103,6 +104,11 @@ class User extends Authenticatable
     public function userLocation(): BelongsTo
     {
         return $this->belongsTo(Location::class, 'location_id');
+    }
+
+    public function userDepartment(): BelongsTo
+    {
+        return $this->belongsTo(Department::class, 'department_id');
     }
 
     public function getAvatar(): string
