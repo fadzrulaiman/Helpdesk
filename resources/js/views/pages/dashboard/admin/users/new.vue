@@ -70,15 +70,17 @@
                                     </div>
                                 </div>
                                 <div class="col-span-3">
-                                    <label class="block text-sm font-medium leading-5 text-gray-700" for="location">{{ $t('Location') }}</label>
+                                    <label class="block text-sm font-medium leading-5 text-gray-700" for="role">{{ $t('Location') }}</label>
                                     <div class="mt-1 relative rounded-md shadow-sm">
-                                        <input
+                                        <select
                                             id="location"
-                                            v-model="user.location"
-                                            :placeholder="$t('Location')"
-                                            class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                            v-model="user.location_id"
+                                            class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                                             required
                                         >
+                                            <option :value="null" disabled>{{ $t('Select an option') }}</option>
+                                            <option v-for="location in locationList" :value="location.id">{{ location.name }}</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-span-3">
@@ -184,9 +186,11 @@ export default {
         return {
             loading: true,
             userRoles: [],
+            locationList: [],
             user: {
                 name: null,
                 email: null,
+                location_id: null,
                 role_id: null,
                 status: true,
                 password: null,
@@ -195,6 +199,7 @@ export default {
     },
     mounted() {
         this.getUserRoles();
+        this.getLocation();
     },
     methods: {
         saveUser() {
@@ -222,6 +227,16 @@ export default {
                 self.loading = false;
             });
         },
+        getLocation() {
+            const self = this;
+            self.loading = true;
+            axios.get('api/dashboard/admin/locations').then(function (response) {
+                self.locationList = response.data;
+                self.loading = false;
+            }).catch(function () {
+                self.loading = false;
+            });
+        }
     }
 }
 </script>
