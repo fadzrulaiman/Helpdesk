@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
                 $table->string('staffno')->nullable();
                 $table->string('icno')->nullable();
                 $table->foreignId('location_id')->constrained('locations');
+                $table->foreignId('department_id')->constrained('departments');
                 $table->string('phone')->nullable();
                 $table->string('avatar')->nullable();
                 $table->foreignId('role_id')->constrained('user_roles');
