@@ -93,6 +93,20 @@
                                     </div>
                                 </div>
                                 <div class="col-span-3">
+                                    <label class="block text-sm font-medium leading-5 text-gray-700" for="location">{{ $t('Department') }}</label>
+                                    <div class="mt-1 relative rounded-md shadow-sm">
+                                        <select
+                                            id="department"
+                                            v-model="user.department_id"
+                                            class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                            required
+                                        >
+                                            <option :value="null" disabled>{{ $t('Select an option') }}</option>
+                                            <option v-for="department in departmentList" :value="department.id">{{ department.name }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-span-3">
                                     <label class="block text-sm font-medium leading-5 text-gray-700" for="phone">{{ $t('Phone Number') }}</label>
                                     <div class="mt-1 relative rounded-md shadow-sm">
                                         <input
@@ -256,6 +270,7 @@ export default {
             deleteUserModal: false,
             userRoles: [],
             locationList: [],
+            departmentList: [],
             user: {
                 name: null,
                 email: null,
@@ -268,6 +283,7 @@ export default {
     mounted() {
         this.getUserRoles();
         this.getLocation();
+        this.getDepartment();
         this.getUser();
     },
     methods: {
@@ -321,6 +337,16 @@ export default {
             self.loading = true;
             axios.get('api/dashboard/admin/locations').then(function (response) {
                 self.locationList = response.data;
+                self.loading = false;
+            }).catch(function () {
+                self.loading = false;
+            });
+        },
+        getDepartment() {
+            const self = this;
+            self.loading = true;
+            axios.get('api/dashboard/admin/departments').then(function (response) {
+                self.departmentList = response.data;
                 self.loading = false;
             }).catch(function () {
                 self.loading = false;
