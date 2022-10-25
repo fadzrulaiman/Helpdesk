@@ -25,7 +25,7 @@ use Storage;
  * @property string $name
  * @property string $email
  * @property string $staffno
- * @property string $location
+ * @property int $location_id
  * @property string $phone
  * @property string|null $avatar
  * @property int $role_id
@@ -42,6 +42,7 @@ use Storage;
  * @property-read Collection|PersonalAccessToken[] $tokens
  * @property-read int|null $tokens_count
  * @property-read UserRole $userRole
+ * @property-read Location|null $userLocation
  * @method static Builder|User filter($input = [], $filter = null)
  * @method static Builder|User newModelQuery()
  * @method static Builder|User newQuery()
@@ -97,6 +98,11 @@ class User extends Authenticatable
     public function userRole(): BelongsTo
     {
         return $this->belongsTo(UserRole::class, 'role_id');
+    }
+
+    public function userLocation(): BelongsTo
+    {
+        return $this->belongsTo(Location::class, 'location_id');
     }
 
     public function getAvatar(): string
