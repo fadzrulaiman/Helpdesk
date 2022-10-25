@@ -42,6 +42,7 @@ class DepartmentTableSeeder extends Seeder
             ['name'=>'Hospital Tambunan','all_agents'=> '0','public'=> '1', 'created_at'=> Carbon::now(),'updated_at'=> Carbon::now()],
             ['name'=>'Hospital Keningau','all_agents'=> '0','public'=> '1', 'created_at'=> Carbon::now(),'updated_at'=> Carbon::now()],
             ['name'=>'Hospital Labuan','all_agents'=> '0','public'=> '1', 'created_at'=> Carbon::now(),'updated_at'=> Carbon::now()],
+            ['name'=>'Headquaters','all_agents'=> '0','public'=> '1', 'created_at'=> Carbon::now(),'updated_at'=> Carbon::now()],
         ];
         DB::table('departments')->insert($department);
     }
