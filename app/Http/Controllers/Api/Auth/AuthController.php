@@ -62,7 +62,6 @@ class AuthController extends Controller
     {
         /** @var User $user */
         $user = Auth::user();
-        $user->currentAccessToken()->delete();
         return response()->json(['message' => __('Session closed successfully')]);
     }
 
