@@ -39,7 +39,7 @@
                                             >
                                         </div>
                                     </div>
-                                    <div v-if="departmentList.length > 0" class="col-span-3">
+                                   <!-- <div v-if="departmentList.length > 0" class="col-span-3">
                                         <label class="block text-sm font-medium leading-5 text-gray-700" for="department">{{ $t('Department') }}</label>
                                         <div class="mt-1 relative rounded-md shadow-sm">
                                             <input-select
@@ -50,7 +50,7 @@
                                                 required
                                             />
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <div class="col-span-3">
                                         <label class="block text-sm font-medium leading-5 text-gray-700" for="ticket_body">{{ $t('Ticket body') }}</label>
                                         <div class="mt-1 relative rounded-md shadow-sm">
