@@ -39,18 +39,6 @@
                                             >
                                         </div>
                                     </div>
-                                   <div v-if="departmentList.length > 0" class="col-span-3">
-                                        <label class="block text-sm font-medium leading-5 text-gray-700" for="department">{{ $t('Department') }}</label>
-                                        <div class="mt-1 relative rounded-md shadow-sm">
-                                            <input-select
-                                                id="department"
-                                                v-model="ticket.department_id"
-                                                :options="departmentList"
-                                                option-label="name"
-                                                required
-                                            />
-                                        </div>
-                                    </div>
                                     <div class="col-span-3">
                                         <label class="block text-sm font-medium leading-5 text-gray-700" for="ticket_body">{{ $t('Ticket body') }}</label>
                                         <div class="mt-1 relative rounded-md shadow-sm">
@@ -113,15 +101,25 @@ export default {
             uploadingFileProgress: 0,
             ticket: {
                 subject: null,
-                department_id: null,
                 body: '',
                 attachments: [],
+            },
+            user: {
+                name: null,
+                avatar: null,
+                gravatar: null,
+                avatar_preview: null,
+                email: null,
+                current_password: null,
+                password: null,
+                password_confirmation: null,
             },
             departmentList: [],
         }
     },
     mounted() {
         this.getDepartments();
+        this.getUser();
     },
     methods: {
         getDepartments() {
@@ -186,7 +184,22 @@ export default {
         },
         removeAttachment(attachment) {
             this.ticket.attachments.splice(attachment, 1);
-        }
+        },
+        getUser() {
+            const self = this;
+            self.loading.details = true;
+            axios.get('api/auth/user').then(function (response) {
+                self.loading.details = false;
+                self.user.name = response.data.name;
+                self.user.email = response.data.email;
+                self.user.department_id=response.data.department_id;
+                self.user.avatar = response.data.avatar;
+                self.user.gravatar = response.data.gravatar;
+                self.user.avatar_preview = response.data.avatar;
+            }).catch(function () {
+                self.loading.details = false;
+            });
+        },
     }
 }
 </script>
