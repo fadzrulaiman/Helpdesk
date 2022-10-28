@@ -74,9 +74,7 @@ class TicketController extends Controller
         $ticket->subject = $request->get('subject');
         $ticket->status_id = 1;
         $ticket->priority_id = 2;
-        if ($request->has('department_id')) {
-            $ticket->department_id = $request->get('department_id');
-        }
+        $ticket->department_id = Auth::user()->department_id;
         $ticket->user_id = Auth::id();
         $ticket->saveOrFail();
         $ticketReply = new TicketReply();
