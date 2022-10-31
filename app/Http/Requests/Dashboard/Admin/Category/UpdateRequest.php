@@ -13,7 +13,7 @@ class UpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,19 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required', 'max:255'],
+        ];
+    }
+      /**
+     * Get custom messages for validator errors.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.required' => __('The :attribute field is required', ['attribute' => __('name')]),
+            'name.max' => __('The :attribute may not be greater than :max characters', ['attribute' => __('name'), 'max' => 255]),
         ];
     }
 }
