@@ -12,7 +12,7 @@ class CategoryController extends Controller
 {
     public function __construct()
     {
-        $this-middleware('auth:sanctum');
+        $this->middleware('auth:sanctum');
     }
         /**
      * Display a listing of the resource.
@@ -31,12 +31,18 @@ class CategoryController extends Controller
      * @param  Category  $category
      * @return JsonResponse
      */
-    
     public function show(Category $category): JsonResponse
     {
         return response()->json(new CategoryResource($category));
     }
 
+            /**
+     * Update the specified resource in storage.
+     *
+     * @param  UpdateRequest  $request
+     * @param  Status  $status
+     * @return JsonResponse
+     */
     public function update(UpdateRequest $request, Category $category): JsonResponse
     {
         $request->validated();
