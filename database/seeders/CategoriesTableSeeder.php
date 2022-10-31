@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CategoryTableSeeder extends Seeder
+class CategoriesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -34,6 +34,6 @@ class CategoryTableSeeder extends Seeder
             ['name'=>'EMAIL - User Unlock Password (Forgotten Password)','created_at'=> Carbon::now(),'updated_at'=> Carbon::now()],
             ['name'=>'EMAIL - Incident/Issue','created_at'=> Carbon::now(),'updated_at'=> Carbon::now()],
         ];
-            DB::table('category')->insert($category);
+            DB::table('categories')->insert($category);
     }
 }
