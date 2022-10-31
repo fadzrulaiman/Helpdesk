@@ -33,6 +33,9 @@ import AdminDashboardLabelsList from "@/views/pages/dashboard/admin/labels/list"
 import AdminDashboardLabelsNew from "@/views/pages/dashboard/admin/labels/new";
 import AdminDashboardLabelsEdit from "@/views/pages/dashboard/admin/labels/edit";
 
+import AdminDashboardCategoryList from "@/views/pages/dashboard/admin/categories/list";
+import AdminDashboardCategoryEdit from "@/views/pages/dashboard/admin/categories/edit";
+
 import AdminDashboardLocationList from "@/views/pages/dashboard/admin/locations/list";
 import AdminDashboardLocationEdit from "@/views/pages/dashboard/admin/locations/edit";
 
@@ -112,6 +115,9 @@ let routes = [
             {path: 'admin/labels', component: AdminDashboardLabelsList, meta: {middleware: 'auth', dashboard_access: true, controller: 'App.Http.Controllers.Api.Dashboard.Admin.LabelController'}},
             {path: 'admin/labels/new', component: AdminDashboardLabelsNew, meta: {middleware: 'auth', dashboard_access: true, controller: 'App.Http.Controllers.Api.Dashboard.Admin.LabelController'}},
             {path: 'admin/labels/:id/edit', component: AdminDashboardLabelsEdit, meta: {middleware: 'auth', dashboard_access: true, controller: 'App.Http.Controllers.Api.Dashboard.Admin.LabelController'}},
+
+            {path: 'admin/categories', component: AdminDashboardCategoryList, meta: {middleware: 'auth', dashboard_access: true, controller: 'App.Http.Controllers.Api.Dashboard.Admin.CategoryController'}},
+            {path: 'admin/categories/:id/edit', component: AdminDashboardCategoryEdit, meta: {middleware: 'auth', dashboard_access: true, controller: 'App.Http.Controllers.Api.Dashboard.Admin.CategoryController'}},
 
             {path: 'admin/locations', component: AdminDashboardLocationList, meta: {middleware: 'auth', dashboard_access: true, controller: 'App.Http.Controllers.Api.Dashboard.Admin.LocationController'}},
             {path: 'admin/locations/:id/edit', component: AdminDashboardLocationEdit, meta: {middleware: 'auth', dashboard_access: true, controller: 'App.Http.Controllers.Api.Dashboard.Admin.LocationController'}},
