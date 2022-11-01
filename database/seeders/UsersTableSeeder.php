@@ -51,6 +51,30 @@ class UsersTableSeeder extends Seeder
             $user->password = bcrypt('password');
             $user->role_id = 3;
             $user->save();
+            // Add Default Supervisor
+            $user = new User();
+            $user->name = 'Supervisor';
+            $user->email = 'supervisor@supervisor.com';
+            $user->staffno = 'S1';
+            $user->icno = '000807121779';
+            $user->location_id = 23;
+            $user->department_id = 27;
+            $user->phone='999';
+            $user->password = bcrypt('password');
+            $user->role_id = 4;
+            $user->save();
+            // Add Default ICT Personnel
+            $user = new User();
+            $user->name = 'ICT Personnel';
+            $user->email = 'ict@ict.com';
+            $user->staffno = 'ICT1';
+            $user->icno = '000807121779';
+            $user->location_id = 23;
+            $user->department_id = 27;
+            $user->phone='999';
+            $user->password = bcrypt('password');
+            $user->role_id = 5;
+            $user->save();
         }
     }
 }

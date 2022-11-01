@@ -39,6 +39,20 @@ class UserRolesTableSeeder extends Seeder
             $userRole->permissions = '[]';
             $userRole->dashboard_access = 0;
             $userRole->save();
+            // Supervisor Role
+            $userRole = new UserRole();
+            $userRole->name = 'Supervisor';
+            $userRole->type = 2;
+            $userRole->permissions = '[]';
+            $userRole->dashboard_access = 0;
+            $userRole->save();
+            // ICT Personnel Role
+            $userRole = new UserRole();
+            $userRole->name = 'ICT Personnel';
+            $userRole->type = 2;
+            $userRole->permissions = '[]';
+            $userRole->dashboard_access = 1;
+            $userRole->save();
         }
     }
 }
