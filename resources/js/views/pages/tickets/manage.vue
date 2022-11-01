@@ -26,6 +26,7 @@
                     <div class="sm:flex sm:items-center py-3 max-w-full">
                         <div class="px-6 sm:pl-6 sm:pr-3 sm:flex-1 sm:w-3/4">
                             <div class="text-xl truncate">{{ ticket.subject }}</div>
+                            <div class="text-xl truncate">Ticket ID #{{ ticket.id }}</div>
                         </div>
                         <div class="px-6 sm:pl-3 sm:pr-6 sm:flex-1 sm:w-1/4">
                             <div class="flex items-center sm:float-right">
