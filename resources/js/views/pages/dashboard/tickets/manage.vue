@@ -114,6 +114,7 @@
                         <div class="sm:flex sm:items-center py-3 max-w-full border-b">
                             <div class="px-6 sm:pl-6 sm:pr-3 sm:flex-1 sm:w-3/4">
                                 <div class="text-xl truncate">{{ ticket.subject }}</div>
+                                <div class="text-xl truncate">{{ ticket.classification }}</div>
                                 <template v-for="(label, index) in ticket.labels">
                                     <div
                                         :style="{backgroundColor: label.color}"

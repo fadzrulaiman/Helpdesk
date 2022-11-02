@@ -215,6 +215,7 @@
                                                                         @change="changeSort"
                                                                     >
                                                                         <option value="subject">{{ $t('Subject') }}</option>
+                                                                        <option value="classification">{{ $t('Classification') }}</option>
                                                                         <option value="status_id">{{ $t('Status') }}</option>
                                                                         <option value="priority_id">{{ $t('Priority') }}</option>
                                                                         <option value="department_id">{{ $t('Department') }}</option>
@@ -261,7 +262,7 @@
         </div>
         <loading :status="loading"/>
         <div class="tickets-list">
-            <div class="hidden sm:block">
+            <div v-if="$store.state.user.id===1" class="hidden sm:block">
                 <div v-show="selectedRows.length > 0" v-on-clickaway="closeQuickActionDropdown" class="tickets-list-toolbar">
                     <div class="relative inline-block text-left">
                         <button class="btn hover:bg-gray-100 p-4 border-r border-gray-200 rounded-none" type="button" @click="toggleQuickActionDropdown('agent')">
@@ -396,7 +397,7 @@
                             <thead>
                             <tr>
                                 <th class="px-3 pt-2 pb-3">
-                                    <input
+                                    <input v-if="$store.state.user.id===1"
                                         id="select-all-tickets"
                                         v-model="selectAll"
                                         aria-label="Checkbox"
@@ -408,8 +409,14 @@
                                 <th class="hidden lg:table-cell px-3 py-2 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
                                     {{ $t('Customer') }}
                                 </th>
-                                <th class="px-3 py-2 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider whitespace-no-wrap overflow-x-auto" colspan="2">
+                                <th class="px-3 py-2 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider whitespace-no-wrap overflow-x-auto">
                                     {{ $t('Ticket summary') }}
+                                </th>
+                                <th class="px-3 py-2 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider whitespace-no-wrap overflow-x-auto">
+                                    {{ $t('Classification') }}
+                                </th>
+                                <th class="px-3 py-2 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider whitespace-no-wrap overflow-x-auto">
+                                    {{ $t('Status/Priority') }}
                                 </th>
                                 <th class="px-3 py-2 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider whitespace-no-wrap overflow-x-auto">
                                     {{ $t('Agent') }}
@@ -427,7 +434,7 @@
                                     tag="tr"
                                 >
                                     <td class="px-3 py-4 whitespace-no-wrap text-center text-sm leading-5 font-medium">
-                                        <input
+                                        <input v-if="$store.state.user.id===1"
                                             :id="'ticket-' + ticket.id"
                                             v-model="selectedRows"
                                             :value="ticket.id"
@@ -476,11 +483,16 @@
                                         </div>
                                     </td>
                                     <td class="px-3 py-4 whitespace-no-wrap leading-5">
+                                        <div class="text-sm leading-5 text-gray-900">
+                                            {{ ticket.classification }}
+                                        </div>
+                                    </td>
+                                    <td class="px-3 py-4 whitespace-no-wrap leading-5">
                                         <div class="text-sm leading-5 font-medium text-gray-900">
-                                            {{ ticket.status ? ticket.status.name : $t('Unassigned') }}
+                                            Status: {{ ticket.status ? ticket.status.name : $t('Unassigned') }}
                                         </div>
                                         <div class="text-sm leading-5 text-gray-500">
-                                            {{ ticket.priority ? ticket.priority.name : $t('Unassigned') }}
+                                            Priority: {{ ticket.priority ? ticket.priority.name : $t('Unassigned') }}
                                         </div>
                                     </td>
                                     <td class="px-3 py-4 whitespace-no-wrap leading-5">
