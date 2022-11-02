@@ -18,6 +18,7 @@ class CreateTicketsTable extends Migration
                 $table->id();
                 $table->uuid('uuid')->index();
                 $table->string('subject');
+                $table->string('classification');
                 $table->foreignId('status_id')->nullable()->constrained('statuses')->nullOnDelete();
                 $table->foreignId('priority_id')->nullable()->constrained('priorities')->nullOnDelete();
                 $table->foreignId('department_id')->nullable()->constrained('departments')->nullOnDelete();
