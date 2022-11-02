@@ -31,6 +31,13 @@ class TicketFilter extends ModelFilter
         });
     }
 
+    public function ticket($ticket): TicketFilter
+    {
+        return $this->whereHas('ticket', function (Builder $query) use ($ticket) {
+            $query->where('classification', 'LIKE', '%'.$ticket.'%');
+        });
+    }
+
     public function agents($agents): TicketFilter
     {
         return $this->whereIn('agent_id', $agents);

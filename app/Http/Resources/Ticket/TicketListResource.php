@@ -28,6 +28,7 @@ class TicketListResource extends JsonResource
             'id' => $ticket->id,
             'uuid' => $ticket->uuid,
             'subject' => $ticket->subject,
+            'classification' => $ticket->classification,
             'lastReply' => new TicketReplyQuickDetailsResource($ticket->ticketReplies->last()),
             'status' => new StatusResource($ticket->status),
             'priority' => new PriorityResource($ticket->priority),

@@ -25,6 +25,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'subject' => ['required', 'max:255'],
+            'classification' => ['required', 'max:255'],
             'department_id' => ['exclude_if:department_id,null', 'exists:departments,id'],
             'body' => ['required'],
         ];
@@ -40,6 +41,9 @@ class StoreRequest extends FormRequest
         return [
             'subject.required' => __('The :attribute field is required', ['attribute' => __('subject')]),
             'subject.max' => __('The :attribute may not be greater than :max characters', ['attribute' => __('subject'), 'max' => 255]),
+
+            'classification.required' => __('The :attribute field is required', ['attribute' => __('subject')]),
+            'classification.max' => __('The :attribute may not be greater than :max characters', ['attribute' => __('subject'), 'max' => 255]),
 
             'department_id.exists' => __('The selected :attribute is invalid', ['attribute' => __('department')]),
 

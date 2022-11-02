@@ -24,6 +24,7 @@ class TicketDetailsResource extends JsonResource
             'id' => $ticket->id,
             'uuid' => $ticket->uuid,
             'subject' => $ticket->subject,
+            'classification' => $ticket->classification,
             'department' => new DepartmentSelectResource($ticket->department),
             'department_id' => $ticket->department_id,
             'created_at' => $ticket->created_at->toISOString(),

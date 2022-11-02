@@ -98,6 +98,7 @@ class TicketController extends Controller
         $ticket = new Ticket();
         $ticket->uuid = Str::uuid();
         $ticket->subject = $request->get('subject');
+        $ticket->classification = $request->get('classification');
         $ticket->status_id = $request->get('status_id');
         $ticket->priority_id = $request->get('priority_id');
         $ticket->department_id = $request->get('department_id');

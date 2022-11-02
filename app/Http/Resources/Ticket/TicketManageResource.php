@@ -28,6 +28,7 @@ class TicketManageResource extends JsonResource
             'id' => $ticket->id,
             'uuid' => $ticket->uuid,
             'subject' => $ticket->subject,
+            'classification' => $ticket->classification,
             'status' => new StatusResource($ticket->status),
             'status_id' => $ticket->status_id,
             'priority' => new PriorityResource($ticket->priority),
