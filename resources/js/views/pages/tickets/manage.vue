@@ -26,11 +26,12 @@
                     <div class="sm:flex sm:items-center py-3 max-w-full">
                         <div class="px-6 sm:pl-6 sm:pr-3 sm:flex-1 sm:w-3/4">
                             <div class="text-xl truncate">{{ ticket.subject }}</div>
-                            <div class="text-xl truncate">Ticket ID #{{ ticket.id }}</div>
+                            <h4> Classification: {{ ticket.classification }}</h4>
                         </div>
                         <div class="px-6 sm:pl-3 sm:pr-6 sm:flex-1 sm:w-1/4">
                             <div class="flex items-center sm:float-right">
-                                <div class="text-sm sm:pr-2">{{ ticket.created_at | momentFormatDateTimeAgo }}</div>
+                                <div class="text-sm sm:pr-2">Ticket ID #{{ ticket.id }}</div>
+                                <div class="text-sm sm:pr-2">| {{ ticket.created_at | momentFormatDateTimeAgo }}</div>
                                 <button class="flex items-center btn btn-white p-2 ml-3 sm:ml-0" type="button" @click="replyForm = true">
                                     <svg-vue class="h-4 w-4 mr-2" icon="font-awesome.reply-regular"></svg-vue>
                                     {{ $t('Reply') }}

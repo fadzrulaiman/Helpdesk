@@ -28,8 +28,8 @@
                             <div class="md:col-span-2">
                                 <div class="grid grid-cols-3 gap-6">
                                     <div class="col-span-3">
-                                    <label class="block text-sm font-medium leading-5 text-gray-700" for="role">{{ $t('Subject') }}</label>
-                                    <div class="mt-1 relative rounded-md shadow-sm">
+                                        <label class="block text-sm font-medium leading-5 text-gray-700" for="role">{{ $t('Subject') }}</label>
+                                            <div class="mt-1 relative rounded-md shadow-sm">
                                         <select
                                             id="subject"
                                             v-model="ticket.subject"
@@ -38,6 +38,23 @@
                                         >
                                             <option :value="null" disabled>{{ $t('Select an option') }}</option>
                                             <option v-for="option in options" :value="option.value">{{ option.text }}</option>
+                                        </select>
+                                            </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="grid grid-cols-3 gap-6">
+                                    <div class="col-span-3">
+                                    <label class="block text-sm font-medium leading-5 text-gray-700" for="role">{{ $t('Classification') }}</label>
+                                    <div class="mt-1 relative rounded-md shadow-sm">
+                                        <select
+                                            id="classification"
+                                            v-model="ticket.classification"
+                                            class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                            required
+                                        >
+                                            <option :value="null" disabled>{{ $t('Select an option') }}</option>
+                                            <option v-for="option in choose" :value="option.value">{{ option.text }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -98,8 +115,7 @@ export default {
         return {
             subject: null,
       options: [
-        { text: 'Hardware - Desktop', value: 'Hardware - Desktop' },
-        { text: 'Hardware - Laptop', value: 'Hardware - Laptop' },
+        { text: 'Hardware - Computer', value: 'Hardware - Computer' },
         { text: 'Hardware - Printers', value: 'Hardware - Printers' },
         { text: 'Hardware - UPS', value: 'Hardware - UPS' },
         { text: 'Software - Installation & Deployment', value: 'Software - Installation & Deployment' },
@@ -114,10 +130,13 @@ export default {
         { text: 'RAMCO - User Unlock Password (Forgotten Password)', value: 'RAMCO - User Unlock Password (Forgotten Password)' },
         { text: 'RAMCO - Incident/Issue', value: 'RAMCO - Incident/Issue' },
         { text: 'EMAIL - User Unlock Password (Forgotten Password)', value: 'EMAIL - User Unlock Password (Forgotten Password)' },
-        { text: 'EMAIL - Incident/Issue', value: 'EMAIL - Incident/Issue' },
+        { text: 'EMAIL - Incident/Issue', value: 'EMAIL - Incident/Issue' },],
 
-
-      ],
+            classification: null,
+        choose: [
+        { text: 'Incident', value: 'Incident' },
+        { text: 'Service Request', value: 'Service Request' },
+        ],
 
             loading: {
                 form: false,
@@ -126,6 +145,7 @@ export default {
             uploadingFileProgress: 0,
             ticket: {
                 subject: null,
+                classification: null,
                 body: '',
                 attachments: [],
             },

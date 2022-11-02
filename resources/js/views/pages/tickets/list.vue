@@ -79,6 +79,7 @@
                                         @change="changeSort"
                                     >
                                         <option value="subject">{{ $t('Subject') }}</option>
+                                        <option value="classification">{{ $t('Classification') }}</option>
                                         <option value="status_id">{{ $t('Status') }}</option>
                                         <option value="created_at">{{ $t('Created at') }}</option>
                                         <option value="updated_at">{{ $t('Updated at') }}</option>
@@ -95,6 +96,9 @@
                                     <tr>
                                         <th class="px-6 py-2 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider whitespace-no-wrap overflow-x-auto">
                                             {{ $t('Subject') }}
+                                        </th>
+                                        <th class="px-6 py-2 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider whitespace-no-wrap overflow-x-auto">
+                                            {{ $t('Classifications') }}
                                         </th>
                                         <th class="px-6 py-2 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider whitespace-no-wrap overflow-x-auto">
                                             {{ $t('Created at') }}
@@ -117,6 +121,11 @@
                                             <td class="px-6 py-4 max-w-0 w-full whitespace-no-wrap">
                                                 <div class="w-full truncate text-sm leading-5 text-gray-900">
                                                     {{ ticket.subject }}
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 max-w-0 w-full whitespace-no-wrap">
+                                                <div class="w-full truncate text-sm leading-5 text-gray-900">
+                                                    {{ ticket.classification }}
                                                 </div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-no-wrap leading-5">
