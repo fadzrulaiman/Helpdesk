@@ -79,20 +79,6 @@
                                     </div>
                                 </div>
                                 <div class="col-span-3">
-                                    <label class="block text-sm font-medium leading-5 text-gray-700" for="location">{{ $t('Location') }}</label>
-                                    <div class="mt-1 relative rounded-md shadow-sm">
-                                        <select
-                                            id="location"
-                                            v-model="user.location_id"
-                                            class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
-                                            required
-                                        >
-                                            <option :value="null" disabled>{{ $t('Select an option') }}</option>
-                                            <option v-for="location in locationList" :value="location.id">{{ location.name }}</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-span-3">
                                     <label class="block text-sm font-medium leading-5 text-gray-700" for="location">{{ $t('Department') }}</label>
                                     <div class="mt-1 relative rounded-md shadow-sm">
                                         <select
@@ -269,7 +255,6 @@ export default {
             loading: true,
             deleteUserModal: false,
             userRoles: [],
-            locationList: [],
             departmentList: [],
             user: {
                 name: null,
@@ -282,7 +267,6 @@ export default {
     },
     mounted() {
         this.getUserRoles();
-        this.getLocation();
         this.getDepartment();
         this.getUser();
     },
@@ -328,16 +312,6 @@ export default {
             const self = this;
             axios.get('api/dashboard/admin/users/user-roles').then(function (response) {
                 self.userRoles = response.data;
-            }).catch(function () {
-                self.loading = false;
-            });
-        },
-        getLocation() {
-            const self = this;
-            self.loading = true;
-            axios.get('api/dashboard/admin/locations').then(function (response) {
-                self.locationList = response.data;
-                self.loading = false;
             }).catch(function () {
                 self.loading = false;
             });

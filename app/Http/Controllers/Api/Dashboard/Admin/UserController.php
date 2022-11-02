@@ -10,7 +10,6 @@ use App\Http\Resources\Location\LocationResource;
 use App\Http\Resources\User\UserResource;
 use App\Http\Resources\UserRole\UserRoleResource;
 use App\Models\Department;
-use App\Models\Location;
 use App\Models\User;
 use App\Models\UserRole;
 use Auth;
@@ -66,7 +65,6 @@ class UserController extends Controller
         $user->icno = $request->get('icno');
         $user->phone = $request->get('phone');
         $user->department_id = $request->get('department_id');
-        $user->location_id = $request->get('location_id');
         $user->status = $request->get('status');
         $user->role_id = $request->get('role_id');
         $user->password = bcrypt($request->get('password'));
@@ -107,7 +105,6 @@ class UserController extends Controller
         $user->staffno = $request->get('staffno');
         $user->phone = $request->get('phone');
         $user->department_id = $request->get('department_id');
-        $user->location_id = $request->get('location_id');
         $user->status = $request->get('status');
         $user->role_id = $request->get('role_id');
         if ($user->save()) {
@@ -139,11 +136,6 @@ class UserController extends Controller
     public function userRoles(): JsonResponse
     {
         return response()->json(UserRoleResource::collection(UserRole::all()));
-    }
-
-    public function userLocations(): JsonResponse
-    {
-        return response()->json(LocationResource::collection(Location::all()));
     }
 
     public function userDepartments(): JsonResponse

@@ -25,7 +25,6 @@ use Storage;
  * @property string $name
  * @property string $email
  * @property string $staffno
- * @property int $location_id
  * @property string $phone
  * @property string|null $avatar
  * @property int $role_id
@@ -99,11 +98,6 @@ class User extends Authenticatable
     public function userRole(): BelongsTo
     {
         return $this->belongsTo(UserRole::class, 'role_id');
-    }
-
-    public function userLocation(): BelongsTo
-    {
-        return $this->belongsTo(Location::class, 'location_id');
     }
 
     public function userDepartment(): BelongsTo

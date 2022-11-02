@@ -21,7 +21,6 @@ class UsersTableSeeder extends Seeder
             $user->email = 'admin@admin.com';
             $user->staffno = 'A1';
             $user->icno = '000807121779';
-            $user->location_id = 23;
             $user->department_id = 27;
             $user->phone='999';
             $user->password = bcrypt('password');
@@ -33,7 +32,6 @@ class UsersTableSeeder extends Seeder
             $user->email = 'user@user.com';
             $user->staffno = 'U1';
             $user->icno = '000807121779';
-            $user->location_id = 23;
             $user->department_id = 27;
             $user->phone='999';
             $user->password = bcrypt('password');
@@ -45,7 +43,6 @@ class UsersTableSeeder extends Seeder
             $user->email = 'customer@customer.com';
             $user->staffno = 'C1';
             $user->icno = '000807121779';
-            $user->location_id = 23;
             $user->department_id = 27;
             $user->phone='999';
             $user->password = bcrypt('password');
@@ -57,7 +54,6 @@ class UsersTableSeeder extends Seeder
             $user->email = 'supervisor@supervisor.com';
             $user->staffno = 'S1';
             $user->icno = '000807121779';
-            $user->location_id = 23;
             $user->department_id = 27;
             $user->phone='999';
             $user->password = bcrypt('password');
@@ -69,7 +65,6 @@ class UsersTableSeeder extends Seeder
             $user->email = 'ict@ict.com';
             $user->staffno = 'ICT1';
             $user->icno = '000807121779';
-            $user->location_id = 23;
             $user->department_id = 27;
             $user->phone='999';
             $user->password = bcrypt('password');

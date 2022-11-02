@@ -29,7 +29,6 @@ class UpdateRequest extends FormRequest
             'staffno' => ['required'],
             'icno' => ['required'],
             'department_id' => ['required', 'exists:departments,id'],
-            'location_id' => ['required', 'exists:locations,id'],
             'phone' => ['required'],
             'status' => ['required'],
             'role_id' => ['required', 'exists:user_roles,id'],
@@ -54,9 +53,6 @@ class UpdateRequest extends FormRequest
 
             'department_id.required' => __('The :attribute field is required', ['attribute' => __('department')]),
             'department_id.exists' => __('The selected :attribute is invalid', ['attribute' => __('department')]),
-
-            'location_id.required' => __('The :attribute field is required', ['attribute' => __('location')]),
-            'location_id.exists' => __('The selected :attribute is invalid', ['attribute' => __('location')]),
 
             'status.required' => __('The :attribute field is required', ['attribute' => __('status')]),
 
