@@ -58,13 +58,29 @@
                                 <div class="col-span-3">
                                     <label class="block text-sm font-medium leading-5 text-gray-700" for="subject">{{ $t('Subject') }}</label>
                                     <div class="mt-1 relative rounded-md shadow-sm">
-                                        <input
+                                        <select
                                             id="subject"
                                             v-model="ticket.subject"
-                                            :placeholder="$t('Subject')"
-                                            class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                            class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                                             required
                                         >
+                                            <option :value="null" disabled>{{ $t('Select an option') }}</option>
+                                            <option v-for="option in options" :value="option.value">{{ option.text }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-span-3">
+                                    <label class="block text-sm font-medium leading-5 text-gray-700" for="department">{{ $t('Classification') }}</label>
+                                    <div class="mt-1 relative rounded-md shadow-sm">
+                                        <select
+                                            id="classification"
+                                            v-model="ticket.classification"
+                                            class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                            required
+                                        >
+                                            <option :value="null" disabled>{{ $t('Select an option') }}</option>
+                                            <option v-for="option in choose" :value="option.value">{{ option.text }}</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-span-3">
@@ -164,6 +180,29 @@ export default {
     },
     data() {
         return {
+            options: [
+        { text: 'Hardware - Computer', value: 'Hardware - Computer' },
+        { text: 'Hardware - Printers', value: 'Hardware - Printers' },
+        { text: 'Hardware - UPS', value: 'Hardware - UPS' },
+        { text: 'Software - Installation & Deployment', value: 'Software - Installation & Deployment' },
+        { text: 'Software - Operating System', value: 'Software - Operating System' },
+        { text: 'Software - Incident/Issue', value: 'Software - Incident/Issue' },
+        { text: 'Network - Network Equipment', value: 'Network - Network Equipment' },
+        { text: 'Network - Connection & Line', value: 'Network - Connection & Line' },
+        { text: 'Network - Call Centre Related', value: 'Network - Call Centre Related' },
+        { text: 'Network - Incident/Issue', value: 'Network - Incident/Issue' },
+        { text: 'ASIS - User Unlock Password (Forgotten Password)', value: 'ASIS - User Unlock Password (Forgotten Password)' },
+        { text: 'ASIS - Incident/Issue', value: 'ASIS - Incident/IssueB' },
+        { text: 'RAMCO - User Unlock Password (Forgotten Password)', value: 'RAMCO - User Unlock Password (Forgotten Password)' },
+        { text: 'RAMCO - Incident/Issue', value: 'RAMCO - Incident/Issue' },
+        { text: 'EMAIL - User Unlock Password (Forgotten Password)', value: 'EMAIL - User Unlock Password (Forgotten Password)' },
+        { text: 'EMAIL - Incident/Issue', value: 'EMAIL - Incident/Issue' },
+        ],
+
+        choose: [
+        { text: 'Incident', value: 'Incident' },
+        { text: 'Service Request', value: 'Service Request' },
+        ],
             loading: {
                 form: true,
                 file: false,
@@ -172,6 +211,7 @@ export default {
             ticket: {
                 user_id: null,
                 subject: null,
+                classification: null,
                 department_id: null,
                 status_id: null,
                 priority_id: null,

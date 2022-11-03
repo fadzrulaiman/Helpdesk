@@ -40,7 +40,7 @@
                                             <div class="py-1">
                                                 <template v-for="department in departmentList">
                                                     <a
-                                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                                        class="block px-2 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                                                         href="#"
                                                         role="menuitem"
                                                         @click.prevent="action('department', department.id)"
