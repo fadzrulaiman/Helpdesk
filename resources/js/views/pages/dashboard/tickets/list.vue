@@ -6,7 +6,7 @@
                     <h1 class="py-0.5 text-2xl font-semibold text-gray-900">{{ $t('Tickets') }}</h1>
                 </div>
                 <div class="mt-4 flex md:mt-0 md:ml-4">
-                    <router-link
+                    <router-link v-if="$store.state.user.id===1"
                         class="btn btn-blue shadow-sm rounded-md mr-4"
                         to="/dashboard/tickets/new"
                     >

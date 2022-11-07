@@ -95,7 +95,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button class="btn p-4 rounded-none" type="button" @click="deleteTicketModal = true">
+                            <button v-if="$store.state.user.role_id===1 || $store.state.user.role_id===5" class="btn p-4 rounded-none" type="button" @click="deleteTicketModal = true">
                                 <svg-vue class="h-5 w-5 text-gray-700" icon="font-awesome.trash-alt-regular"></svg-vue>
                             </button>
                         </div>
