@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\Admin\User\StoreRequest;
 use App\Http\Requests\Dashboard\Admin\User\UpdateRequest;
 use App\Http\Resources\Department\DepartmentResource;
-use App\Http\Resources\Location\LocationResource;
 use App\Http\Resources\User\UserResource;
 use App\Http\Resources\UserRole\UserRoleResource;
 use App\Models\Department;
