@@ -74,7 +74,7 @@ class TicketController extends Controller
         $ticket->subject = $request->get('subject');
         $ticket->classification = $request->get('classification');
         $ticket->status_id = 1;
-        $ticket->priority_id = 2;
+        $ticket->priority_id = 1;
         $ticket->department_id = Auth::user()->department_id;
         $ticket->user_id = Auth::id();
         $ticket->saveOrFail();
