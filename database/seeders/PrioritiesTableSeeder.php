@@ -18,10 +18,9 @@ class PrioritiesTableSeeder extends Seeder
         if (Priority::count() === 0) {
             $now = Carbon::now();
             Priority::insert([
-                ['value' => 1, 'name' => 'Low', 'created_at' => $now, 'updated_at' => $now],
-                ['value' => 2, 'name' => 'Normal', 'created_at' => $now, 'updated_at' => $now],
-                ['value' => 3, 'name' => 'High', 'created_at' => $now, 'updated_at' => $now],
-                ['value' => 4, 'name' => 'Urgent', 'created_at' => $now, 'updated_at' => $now],
+                ['value' => 1, 'name' => 'Normal', 'created_at' => $now, 'updated_at' => $now],
+                ['value' => 2, 'name' => 'High', 'created_at' => $now, 'updated_at' => $now],
+                ['value' => 3, 'name' => 'Critical', 'created_at' => $now, 'updated_at' => $now],
             ]);
         }
     }
