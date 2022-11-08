@@ -19,6 +19,7 @@ class StatusesTableSeeder extends Seeder
         $status =[
             ['name'=>'Open', 'created_at'=> Carbon::now(),'updated_at'=> Carbon::now()],
             ['name'=>'Approved', 'created_at'=> Carbon::now(),'updated_at'=> Carbon::now()],
+            ['name'=>'Rejected', 'created_at'=> Carbon::now(),'updated_at'=> Carbon::now()],
             ['name'=>'Resolved', 'created_at'=> Carbon::now(),'updated_at'=> Carbon::now()],
             ['name'=>'Closed', 'created_at'=> Carbon::now(),'updated_at'=> Carbon::now()],
         ];

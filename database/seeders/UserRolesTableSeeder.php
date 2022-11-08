@@ -43,14 +43,14 @@ class UserRolesTableSeeder extends Seeder
             $userRole = new UserRole();
             $userRole->name = 'Supervisor';
             $userRole->type = 2;
-            $userRole->permissions = '[]';
-            $userRole->dashboard_access = 0;
+            $userRole->permissions = "[\"App.Http.Controllers.Api.Dashboard.TicketController\"]";
+            $userRole->dashboard_access = 1;
             $userRole->save();
             // ICT Personnel Role
             $userRole = new UserRole();
             $userRole->name = 'ICT Personnel';
             $userRole->type = 2;
-            $userRole->permissions = '[]';
+            $userRole->permissions = "[\"App.Http.Controllers.Api.Dashboard.StatsController\",\"App.Http.Controllers.Api.Dashboard.TicketController\",\"App.Http.Controllers.Api.Dashboard.CannedReplyController\"]";
             $userRole->dashboard_access = 1;
             $userRole->save();
         }
