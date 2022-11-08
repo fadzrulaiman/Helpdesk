@@ -22,7 +22,8 @@ class StatsController extends Controller
         return response()->json([
             'open_tickets' => Ticket::where('status_id', 1)->count(),
             'pending_tickets' => Ticket::where('status_id', 2)->count(),
-            'solved_tickets' => Ticket::whereIn('status_id', [3, 4])->count(),
+            'solved_tickets' => Ticket::whereIn('status_id', [4, 5])->count(),
+            'rejected_tickets'=> Ticket::where('status_id',3)->count(),
             'without_agent' => Ticket::whereNull('agent_id')->count(),
         ]);
     }
