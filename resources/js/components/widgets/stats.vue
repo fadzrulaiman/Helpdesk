@@ -56,6 +56,7 @@ export default {
                 open_tickets: null,
                 pending_tickets: null,
                 solved_tickets: null,
+                rejected_tickets: null,
                 without_agent: null,
             }
         }

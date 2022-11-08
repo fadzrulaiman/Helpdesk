@@ -124,7 +124,7 @@
                                     </div>
                                     <div class="mt-6 grid grid-cols-3 gap-6">
                                         <div class="col-span-3">
-                                            <label class="block text-sm font-medium leading-5 text-gray-700" for="password_confirmation">{{ $t('Current password') }}</label>
+                                            <label class="block text-sm font-medium leading-5 text-gray-700" for="password_confirmation">{{ $t('Re-type new password') }}</label>
                                             <div class="mt-1 relative rounded-md shadow-sm">
                                                 <input
                                                     id="password_confirmation"

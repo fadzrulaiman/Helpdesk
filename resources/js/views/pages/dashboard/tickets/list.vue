@@ -6,7 +6,7 @@
                     <h1 class="py-0.5 text-2xl font-semibold text-gray-900">{{ $t('Tickets') }}</h1>
                 </div>
                 <div class="mt-4 flex md:mt-0 md:ml-4">
-                    <router-link v-if="$store.state.user.id===1"
+                    <router-link v-if="$store.state.user.role_id===1"
                         class="btn btn-blue shadow-sm rounded-md mr-4"
                         to="/dashboard/tickets/new"
                     >
@@ -262,7 +262,7 @@
         </div>
         <loading :status="loading"/>
         <div class="tickets-list">
-            <div v-if="$store.state.user.id===1" class="hidden sm:block">
+            <div v-if="$store.state.user.role_id===1" class="hidden sm:block">
                 <div v-show="selectedRows.length > 0" v-on-clickaway="closeQuickActionDropdown" class="tickets-list-toolbar">
                     <div class="relative inline-block text-left">
                         <button class="btn hover:bg-gray-100 p-4 border-r border-gray-200 rounded-none" type="button" @click="toggleQuickActionDropdown('agent')">
@@ -397,7 +397,7 @@
                             <thead>
                             <tr>
                                 <th class="px-3 pt-2 pb-3">
-                                    <input v-if="$store.state.user.id===1"
+                                    <input v-if="$store.state.user.role_id===1"
                                         id="select-all-tickets"
                                         v-model="selectAll"
                                         aria-label="Checkbox"
@@ -434,7 +434,7 @@
                                     tag="tr"
                                 >
                                     <td class="px-3 py-4 whitespace-no-wrap text-center text-sm leading-5 font-medium">
-                                        <input v-if="$store.state.user.id===1"
+                                        <input v-if="$store.state.user.role_id===1"
                                             :id="'ticket-' + ticket.id"
                                             v-model="selectedRows"
                                             :value="ticket.id"
